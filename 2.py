@@ -23,7 +23,7 @@ for (tv, tw) in vws:
     # print(f'tv:{tv} tw:{tw}')
     vs, ws = [], []
     for i in range(20):
-
+        print(f'uR:{uR} uL:{uL}')
         uR, uL = speed(tv, math.radians(tw))
         # print(f'uR:{uR} uL:{uL}')
         motor.drive(uR, uL)
@@ -33,7 +33,7 @@ for (tv, tw) in vws:
         ws.append(w)
         # print(f'time:{odom.time:.3f} v:{v:.3f} w:{w:.1f}')
         time.sleep(0.05)
-    print(f'uR:{uR} uL:{uL}')
+
     motor.stop()
     time.sleep(3)
     vs, ws = vs[5:], ws[5:]
