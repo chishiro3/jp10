@@ -70,7 +70,6 @@ for (wx, wy, wv) in waypoints:
         motor.drive(uR, uL)
         odom.update()
         time.sleep(0.05)
-        print("test")
 
 print(f'time:{odom.time}')
 cv2.imwrite('trace.png', map)
