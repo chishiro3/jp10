@@ -6,6 +6,7 @@ from pll_odom import Odometry
 
 
 def speed(v, w):
+    print(v, w)
     uR = 410*v+1
     uL = 410*v+1
     return int(uR), int(uL)
@@ -25,13 +26,13 @@ for (tv, tw) in vws:
     for i in range(20):
 
         uR, uL = speed(tv, math.radians(tw))
-        print(f'uR:{uR} uL:{uL}')
+        # print(f'uR:{uR} uL:{uL}')
         motor.drive(uR, uL)
         odom.update()
         v, w = (odom.vR + odom.vL) / 2, math.degrees(odom.w)
         vs.append(v)
         ws.append(w)
-        print(f'time:{odom.time:.3f} v:{v:.3f} w:{w:.1f}')
+        # print(f'time:{odom.time:.3f} v:{v:.3f} w:{w:.1f}')
         time.sleep(0.05)
     motor.stop()
     time.sleep(3)
