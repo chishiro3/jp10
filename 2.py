@@ -6,8 +6,12 @@ from pll_odom import Odometry
 
 
 def speed(v, w):
-    uR = 410*v+1
-    uL = 410*v+1
+    # uR = 410*v+1
+    # uL = 410*v+1
+
+    T = 0.145
+    uR = 410*v+250*T*w+1
+    uL = 410*v-250*T*w+1
     return int(uR), int(uL)
 
 

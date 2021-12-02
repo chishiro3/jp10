@@ -31,9 +31,11 @@ def speed(v, w):
 
 
 def distance(x1, y1, x2, y2):
+    return math.sqrt((x1-x2)**2 + (y1-y2)**2)
 
-    motor = Motor()
-    odom = Odometry(motor)
+
+motor = Motor()
+odom = Odometry(motor)
 
 
 waypoints = [(0, 0, 0), (0.2, 0, 0.1), (0.3, 0, 0.1), (0.4, 0.2, 0.1), (0.4, 0.3, 0.1), (0.4, 0.4, 0.1), (0.3, 0.5, 0.1),
