@@ -1,0 +1,67 @@
+import math
+import time
+
+import cv2
+import numpy as np
+from lightrover import Motor
+
+from pll_odom import Odometry
+
+H, W, scale = 600, 800, 250
+
+
+def init_map():
+    map = np.full((H+1, W+1, 3), 128, dtype=np.uint8)
+    cv2.rectangle(map, (0, 0), (W, H), (230, 244, 248), -1)
+    for h in range(0, H+1, 100):
+        cv2.line(map, (0, h), (W, h), (0, 0, 0))
+    for w in range(0, W+1, 100):
+        cv2.line(map, (w, 0), (w, H), (0, 0, 0))
+    cv2.line(map, (100, 0), (100, H), (0, 0, 0), thickness=2)
+    cv2.line(map, (0, H-100), (W, H-100), (0, 0, 0), thickness=2)
+    return map
+
+
+def to_pixel(x, y):
+    return int(x * scale) + 100, H - 100 - int(y * scale)
+
+
+def speed(v, w):
+    return int(uR), int(uL)
+
+
+def distance(x1, y1, x2, y2):
+
+    motor = Motor()
+    odom = Odometry(motor)
+
+
+waypoints = [(0, 0, 0), ...]
+
+L = 0.05
+map = init_map()
+trace = [(0, 0, 0, 0)]
+
+
+cv2.imshow('pursuit', map)
+for (wx, wy, wv) in waypoints:
+    print(f'waypoint wx:{wx} wy:{wy} wv:{wv}')
+    cv2.circle(map, to_pixel(wx, wy), 4, (255, 0, 0), thickness=-1)
+    while distance(odom.x, odom.y, wx, wy) > L:
+        pre = trace[-1]
+        cv2.line(map, to_pixel(pre[1], pre[2]),
+                 to_pixel(odom.x, odom.y), (0, 0, 255), 2)
+        cv2.imshow('pursuit', map)
+        cv2.waitKey(1)
+        trace.append((odom.time, odom.x, odom.y))
+        wxR = ...
+        wyR = ...
+        www = ...
+        uR, uL = speed(wv, ww)
+        motor.drive(uR, uL)
+        odom.update()
+        time.sleep(0.05)
+
+print(f'time:{odom.time}')
+cv2.imwrite('trace.png', map)
+cv2.waitKey(0)
