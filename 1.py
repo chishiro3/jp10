@@ -21,10 +21,10 @@ for u in us:
         vs.append(v)
         print(f'time:{odom.time:.3f} e:{e} t:{t} v:{v:.3f}')
         time.sleep(0.05)
-        mvs.append(sum(vs[5:]) / len(vs[5:]))
+    mvs.append(sum(vs[5:]) / len(vs[5:]))
 
-        motor.stop()
-        time.sleep(3)
+    motor.stop()
+    time.sleep(3)
 print(f'us:{us}')
 print(f'mvs:{mvs}')
 c = np.polyfit(mvs, us, 1)
