@@ -33,10 +33,10 @@ for (tv, tw) in vws:
         ws.append(w)
         print(f'time:{odom.time:.3f} v:{v:.3f} w:{w:.1f}')
         time.sleep(0.05)
-        motor.stop()
-        time.sleep(3)
-        vs, ws = vs[5:], ws[5:]
-        print(
-            f'v target: {tv} mean: {sum(vs)/len(vs): .3f} min: {min(vs): .3f} max: {max(vs): .3f}')
-        print(
-            f'w target: {tw} mean: {sum(ws)/len(ws): .1f} min: {min(ws): .1f} max: {max(ws): .1f}')
+    motor.stop()
+    time.sleep(3)
+    vs, ws = vs[5:], ws[5:]
+    print(
+        f'v target: {tv} mean: {sum(vs)/len(vs): .3f} min: {min(vs): .3f} max: {max(vs): .3f}')
+    print(
+        f'w target: {tw} mean: {sum(ws)/len(ws): .1f} min: {min(ws): .1f} max: {max(ws): .1f}')
