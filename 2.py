@@ -38,7 +38,7 @@ for (tv, tw) in vws:
         ws.append(w)
         # print(f'time:{odom.time:.3f} v:{v:.3f} w:{w:.1f}')
         time.sleep(0.05)
-        print(f'uR:{uR} uL:{uL}')
+        # print(f'uR:{uR} uL:{uL}')
         n += 1
     print("---------------------------------------------")
 
