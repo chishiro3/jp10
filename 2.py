@@ -2,12 +2,12 @@ import math
 import time
 
 from lightrover import Motor
-
 from pll_odom import Odometry
 
 
 def speed(v, w):
-
+    uR = 410*v+1
+    uL = 410*v+1
     return int(uR), int(uL)
 
 
