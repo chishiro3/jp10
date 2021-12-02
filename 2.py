@@ -37,6 +37,7 @@ for (tv, tw) in vws:
         # print(f'time:{odom.time:.3f} v:{v:.3f} w:{w:.1f}')
         time.sleep(0.05)
         # print(f'uR:{uR} uL:{uL}')
+    print("---------------------------------------------")
 
     motor.stop()
     time.sleep(3)
