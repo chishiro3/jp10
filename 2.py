@@ -42,6 +42,6 @@ for (tv, tw) in vws:
     time.sleep(3)
     vs, ws = vs[5:], ws[5:]
     print(
-        f'v target: {tv} mean: {sum(vs)/len(vs): .3f} min: {min(vs): .3f} max: {max(vs): .3f}')
+        f'diff {tv-sum(vs)/len(vs)}   v target: {tv} mean: {sum(vs)/len(vs): .3f} min: {min(vs): .3f} max: {max(vs): .3f}')
     print(
-        f'w target: {tw} mean: {sum(ws)/len(ws): .1f} min: {min(ws): .1f} max: {max(ws): .1f}')
+        f'diff {tw-sum(ws)/len(ws)}    w target: {tw} mean: {sum(ws)/len(ws): .1f} min: {min(ws): .1f} max: {max(ws): .1f}')
