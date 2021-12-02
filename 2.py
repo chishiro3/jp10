@@ -21,7 +21,7 @@ vws = [(0.1, 0), (0.2, 0), (0.3, 0),
        (0.1, 10), (0.1, 20), (0.1, 30)]
 
 for (tv, tw) in vws:
-    print(f'tv:{tv} tw:{tw}')
+    # print(f'tv:{tv} tw:{tw}')
     vs, ws = [], []
     for i in range(20):
 
