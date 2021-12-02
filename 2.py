@@ -9,6 +9,9 @@ def speed(v, w):
     print(v, w)
     uR = 410*v+1
     uL = 410*v+1
+    # if w> 0:
+    # uR=410*
+    # uL=
     return int(uR), int(uL)
 
 
@@ -33,7 +36,8 @@ for (tv, tw) in vws:
         vs.append(v)
         ws.append(w)
         # print(f'time:{odom.time:.3f} v:{v:.3f} w:{w:.1f}')
-        time.sleep(0.05)
+        print(f'uR:{uR} uL:{uL}')
+    print("")
     motor.stop()
     time.sleep(3)
     vs, ws = vs[5:], ws[5:]
