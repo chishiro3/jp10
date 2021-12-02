@@ -27,6 +27,9 @@ def to_pixel(x, y):
 
 
 def speed(v, w):
+    T = 0.145
+    uR = 410*v+205*T*w+1
+    uL = 410*v-205*T*w+1
     return int(uR), int(uL)
 
 
@@ -39,7 +42,8 @@ odom = Odometry(motor)
 
 
 waypoints = [(0, 0, 0), (0.2, 0, 0.1), (0.3, 0, 0.1), (0.4, 0.2, 0.1), (0.4, 0.3, 0.1), (0.4, 0.4, 0.1), (0.3, 0.5, 0.1),
-             (0.2, 0.5, 0.1), (0.1, 0.5, 0.1), (0, 0.4, 0.1), (0, 0.3, 0.1), (0, 0.2, 0.1), (0, 0.1, 0.1), (0, 0, 0.1), (0, 0, 0)]
+             #  (0.2, 0.5, 0.1), (0.1, 0.5, 0.1), (0, 0.4, 0.1), (0, 0.3, 0.1), (0, 0.2, 0.1), (0, 0.1, 0.1), (0, 0, 0.1), (0, 0, 0)
+             ]
 L = 0.05
 map = init_map()
 trace = [(0, 0, 0, 0)]
@@ -56,9 +60,9 @@ for (wx, wy, wv) in waypoints:
         cv2.imshow('pursuit', map)
         cv2.waitKey(1)
         trace.append((odom.time, odom.x, odom.y))
-        wxR = ...
-        wyR = ...
-        www = ...
+        wxR = 0
+        wyR = 0
+        ww = 0
         uR, uL = speed(wv, ww)
         motor.drive(uR, uL)
         odom.update()
