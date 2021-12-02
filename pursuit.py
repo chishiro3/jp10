@@ -62,8 +62,10 @@ for (wx, wy, wv) in waypoints:
         cv2.imshow('pursuit', map)
         cv2.waitKey(1)
         trace.append((odom.time, odom.x, odom.y))
-        wxR = 0
-        wyR = 0
+        wxR = (wx - odom.x)*math.cos(odom.theta) + \
+            (wy - odom.y)*math.sin(odom.theta)
+        wyR = (wx - odom.x)*(-math.sin(odom.theta)) + \
+            (wy - odom.y)*math.cos(odom.theta)
         ww = 0
         uR, uL = speed(wv, ww)
         motor.drive(uR, uL)
