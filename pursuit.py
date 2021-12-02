@@ -3,8 +3,8 @@ import time
 
 import cv2
 import numpy as np
-from lightrover import Motor
 
+from lightrover import Motor
 from pll_odom import Odometry
 
 H, W, scale = 600, 800, 250
@@ -36,8 +36,8 @@ def distance(x1, y1, x2, y2):
     odom = Odometry(motor)
 
 
-waypoints = [(0, 0, 0), ...]
-
+waypoints = [(0, 0, 0), (0.2, 0, 0.1), (0.3, 0, 0.1), (0.4, 0.2, 0.1), (0.4, 0.3, 0.1), (0.4, 0.4, 0.1), (0.3, 0.5, 0.1),
+             (0.2, 0.5, 0.1), (0.1, 0.5, 0.1), (0, 0.4, 0.1), (0, 0.3, 0.1), (0, 0.2, 0.1), (0, 0.1, 0.1), (0, 0, 0.1), (0, 0, 0)]
 L = 0.05
 map = init_map()
 trace = [(0, 0, 0, 0)]
