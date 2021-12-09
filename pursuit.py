@@ -68,7 +68,7 @@ for (wx, wy, wv) in waypoints:
         wyR = (wx - odom.x)*(-math.sin(odom.theta)) + \
             (wy - odom.y)*math.cos(odom.theta)
         try:
-            ww = wv / (wx**2 + wy**2)/(2*wy)
+            ww = wv / (wx**2 + wy**2)*(2*wy)
         except ZeroDivisionError:
             ww = 0
         uR, uL = speed(wv, ww)
