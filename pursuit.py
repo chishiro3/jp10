@@ -67,7 +67,7 @@ for (wx, wy, wv) in waypoints:
             (wy - odom.y)*math.sin(odom.theta)
         wyR = (wx - odom.x)*(-math.sin(odom.theta)) + \
             (wy - odom.y)*math.cos(odom.theta)
-        ww = 0
+        ww = wv / (wxR**2 + wy**2)/(2*wy)
         uR, uL = speed(wv, ww)
         motor.drive(uR, uL)
         odom.update()
