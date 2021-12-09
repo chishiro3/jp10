@@ -41,10 +41,8 @@ motor = Motor()
 odom = Odometry(motor)
 
 
-waypoints = [(0, 0, 0), (0.2, 0, 0.1), (0.3, 0, 0.1), (0.4, 0.2, 0.1), (0.4, 0.3, 0.1), (0.4, 0.4, 0.1), (0.3, 0.5, 0.1),
-             (0.2, 0.5, 0.1), (0.1, 0.5, 0.1), (0, 0.4, 0.1), (0, 0.3,
-                                                               0.1), (0, 0.2, 0.1), (0, 0.1, 0.1), (0, 0, 0.1), (0, 0, 0)
-             ]
+waypoints = [(0, 0, 0), (62.5, 0, 0.1), (62.5, 15, 0.1),
+             (0, 15, 0.1), (0, 0, 0.1), (0, 0, 0)]
 L = 0.05
 map = init_map()
 trace = [(0, 0, 0, 0)]
@@ -54,7 +52,7 @@ cv2.imshow('pursuit', map)
 for (wx, wy, wv) in waypoints:
     print(f'waypoint wx:{wx} wy:{wy} wv:{wv}')
     cv2.circle(map, to_pixel(wx, wy), 4, (255, 0, 0), thickness=-1)
-    print(distance(odom.x, odom.y, wx, wy))
+    # print(distance(odom.x, odom.y, wx, wy))
     while distance(odom.x, odom.y, wx, wy) > L:
 
         pre = trace[-1]
