@@ -60,6 +60,7 @@ for (wx, wy, wv) in waypoints:
                  to_pixel(odom.x, odom.y), (0, 0, 255), 2)
         cv2.imshow('pursuit', map)
         cv2.waitKey(1)
+        print("tesssssst")
         trace.append((odom.time, odom.x, odom.y))
         wxR = (wx - odom.x)*math.cos(odom.theta) + \
             (wy - odom.y)*math.sin(odom.theta)
