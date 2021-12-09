@@ -55,12 +55,13 @@ for (wx, wy, wv) in waypoints:
     print(f'waypoint wx:{wx} wy:{wy} wv:{wv}')
     cv2.circle(map, to_pixel(wx, wy), 4, (255, 0, 0), thickness=-1)
     while distance(odom.x, odom.y, wx, wy) > L:
+        print(distance(odom.x, odom.y, wx, wy))
+
         pre = trace[-1]
         cv2.line(map, to_pixel(pre[1], pre[2]),
                  to_pixel(odom.x, odom.y), (0, 0, 255), 2)
         cv2.imshow('pursuit', map)
         cv2.waitKey(1)
-        print("tesssssst")
         trace.append((odom.time, odom.x, odom.y))
         wxR = (wx - odom.x)*math.cos(odom.theta) + \
             (wy - odom.y)*math.sin(odom.theta)
